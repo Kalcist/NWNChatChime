@@ -1,0 +1,18 @@
+# Personal chat logs and local preferences
+*.log
+logs/
+chat-history/
+settings.ini
+*.user
+*.suo
+.vs/
+
+# Build intermediates and test binaries
+*.o
+*.obj
+*.res
+*.pdb
+source/core_tests
+source/core_tests.exe
+source/windows_log_tests.exe
+__pycache__/
