@@ -1,0 +1,31 @@
+#include <windows.h>
+101 ICON "assets/bell-on.ico"
+102 ICON "assets/bell-off.ico"
+301 RCDATA "assets/fantasy-chime.wav"
+1 RT_MANIFEST "app.manifest"
+1 VERSIONINFO
+FILEVERSION 1,4,0,0
+PRODUCTVERSION 1,4,0,0
+FILEFLAGSMASK 0x3fL
+FILEFLAGS 0
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_APP
+FILESUBTYPE 0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904b0"
+    BEGIN
+      VALUE "FileDescription", "NWN Chat Chime\0"
+      VALUE "FileVersion", "1.4.0\0"
+      VALUE "InternalName", "NWNChatChime\0"
+      VALUE "OriginalFilename", "NWNChatChime.exe\0"
+      VALUE "ProductName", "NWN Chat Chime\0"
+      VALUE "ProductVersion", "1.4.0\0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1200
+  END
+END

@@ -1,0 +1,38 @@
+NWN CHAT CHIME - BUILD FROM SOURCE
+
+The source uses C++17 and the Windows SDK. All assets are included; Python
+is only needed to regenerate the original sound/icons using make_assets.py.
+
+MinGW-w64 on Windows, from this source directory:
+
+  windres app.rc -o app-res.o
+  g++ -std=c++17 -O2 -Wall -Wextra -Werror -municode -mwindows -static -s main.cpp app-res.o -o ../NWNChatChime.exe -lcomctl32 -lcomdlg32 -lshell32 -lole32 -luuid -lwinmm -lgdi32
+
+Use a 64-bit MinGW toolchain. The static flags embed the C++ runtime. The
+result needs only standard Windows DLLs and its sound is embedded.
+
+MSVC Developer Command Prompt, from this directory:
+
+  rc /fo app-res.res app.rc
+  cl /std:c++17 /EHsc /O2 /W4 /MT /utf-8 main.cpp app-res.res /Fe:../NWNChatChime.exe /link /SUBSYSTEM:WINDOWS comctl32.lib comdlg32.lib shell32.lib ole32.lib uuid.lib winmm.lib gdi32.lib user32.lib
+
+The MinGW route was used for the supplied executable. MSVC commands are
+provided as an alternative and were not run in the build environment.
+
+Portable core tests, from this directory:
+
+  g++ -std=c++17 -O0 -g -Wall -Wextra -Werror -fsanitize=address,undefined core_tests.cpp -o core_tests
+  ./core_tests
+
+On platforms that restrict LeakSanitizer process inspection, run the test
+with ASAN_OPTIONS=detect_leaks=0; address and undefined checks still run.
+
+Windows integration tests, with the same resource object as the app:
+
+  g++ -std=c++17 -O1 -Wall -Wextra -Werror -municode -static windows_log_tests.cpp app-res.o -o windows_log_tests.exe -lcomctl32 -lcomdlg32 -lshell32 -lole32 -luuid -lwinmm -lgdi32
+  windows_log_tests.exe
+
+Those checks use temporary fixtures, not real NWN files or a live server.
+They verify Windows file sharing, actual log append/reset/replacement,
+OFF backlog skipping, and the embedded WAV. The test executable is not
+part of the user-facing app.

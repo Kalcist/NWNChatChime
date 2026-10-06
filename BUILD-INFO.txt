@@ -1,0 +1,7 @@
+NWN Chat Chime 1.4
+Windows x86-64 native GUI, static C++ runtime
+Compiler: MinGW-w64 GCC 13 POSIX
+Core automated checks: 127 passed, address + undefined behavior sanitizers
+Windows GUI/audio/live NWN verification: pending on a Windows PC
+Embedded WAV: original mono 16-bit PCM, 44100 Hz, 2.25 seconds
+Executable SHA-256: 36d344aa0782716ef5e38ea18fabdfb6b598e960b7b607424b6f9630212c76b6
