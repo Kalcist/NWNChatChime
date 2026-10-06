@@ -1,6 +1,14 @@
 NWN CHAT CHIME 1.4
 Windows 10/11, 64-bit
 
+DOWNLOAD
+
+Ready-to-run Windows 10/11 (64-bit) app:
+https://github.com/Kalcist/NWNChatChime/releases/tag/v1.4
+
+Under Assets, download NWNChatChime-v1.4-win64.zip, extract it, and
+open NWNChatChime.exe inside the NWNChatChime folder.
+
 GET STARTED
 
 1. Extract this ZIP. Double-click NWNChatChime.exe.
